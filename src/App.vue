@@ -1,3 +1,16 @@
+<template>
+  <div>
+    <header v-if="$route.meta.title">
+      <h1 @click="counter = 0" >
+        {{ $route.meta.title }} / {{ counter }}
+      </h1>
+    </header>
+    <main>
+      <router-view />
+    </main>
+  </div>
+</template>
+
 <script setup>
 import { ref } from 'vue'
 
@@ -8,20 +21,13 @@ setInterval(() => {
 }, 1000)
 </script>
 
-<template>
-  <div>
-    <header class="bg-white shadow" v-if="$route.meta.title">
-      <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <h1
-          @click="counter = 0"
-          class="text-3xl font-bold leading-tight text-gray-900"
-        >
-          {{ $route.meta.title }} / {{ counter }}
-        </h1>
-      </div>
-    </header>
-    <main>
-      <router-view />
-    </main>
-  </div>
-</template>
+<style>
+body {
+  font-family: 'Inter Roman', 'Helvetica Neue', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
